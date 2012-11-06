@@ -33,7 +33,7 @@ while user_choice != "q"
 		puts "What do you want to name your animal?"
 		name_animal = gets.chomp
 		puts "What species is your animal?"
-		species = gets.to_i
+		species = gets.to_s
 		puts "Is your animal (male) or (female)?"
 		gender_animal = gets.chomp.downcase
 		animal << Animal.new(name_animal, species, gender_animal)
