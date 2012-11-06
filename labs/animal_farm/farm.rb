@@ -1,11 +1,13 @@
 class Farm
-	attr_accessor :name
+	attr_accessor :name, :people, :animal
 
 	def initialize(name)
 		@name = name
+		@animal = []
+		@people = []
 	end
 
 	def to_s
-		"#{name}: "
+		"#{name}"
 	end
 end
