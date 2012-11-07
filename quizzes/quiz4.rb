@@ -8,11 +8,12 @@
 # so you can call the function 
 # use a .map to create a new array from the old array
 
-
+require 'pry'
 puts "Please enter in a (n)umber or (q)uit."
 response = gets.chomp
 
 numbers = []
+numbers2 = []
 
 def square(x)
 	y = x*x
@@ -20,17 +21,21 @@ end
 
 
 while response != "q"
-	numbers << response
+	puts "Please enter a number!"
+	n = gets.to_i
+	numbers << n
+	n2 = square(n)
+	numbers2 << n2
 
 	puts "These are the numbers in your array: #{numbers}"
+	puts "These are the numbers in your squared array: #{numbers2}"
 
-	
 	puts "Please enter in a (n)umber or (q)uit."
 	response = gets.chomp
 
 end
 
-
-squared = numbers.map {|n| n.square(numbers)}
-puts "These are the numbers in your squared array: #{squared}"
+if response == "q"
+	puts "Goodbye!!"
+end
 
