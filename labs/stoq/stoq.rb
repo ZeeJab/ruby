@@ -26,6 +26,7 @@
 
 # sleep 3
 # the only way out is ctrl c
+require 'pry'
 
 class User
 	attr_accessor :name, :password, :cash, :stock
@@ -37,6 +38,8 @@ class User
 	end
 
 end
+
+users = {}
 
 puts "Create a (u)ser name, (l)ogin or (q)uit?"
 response = gets.chomp
@@ -51,31 +54,40 @@ while response != "q"
 		puts "How much cash do you have?"
 		cash = gets.to_f
 
-		u1 = User.new(name, password, cash)
+		users[name] = User.new(name, password, cash) #you use the name variable as the key because its unique 		
+
+		
 
 	when "l"
-		puts "What is your user name? #{name}"
+		puts "What is your user name? #{users.keys}"
 		user_name = gets.chomp
-		while user_name == name
+		while user_name == users[user_name].name
 			puts "What is your password?"
 			user_password = gets.chomp
-			if user_password == password
+			if user_password == users[user_name].password
 				# chang's code!
 				#
 				#
 				#
+				puts "YAY!"
 			else
 				puts "Sorry! Incorrect password!"
 			end
+
+				#what happens after you login correctly?!
 		end
 
+
+	end
 		puts "Create a (u)ser name, (l)ogin or (q)uit?"
 		response = gets.chomp
+	
 end
 
-if response == "q"
-	puts "Have a wonderful day!"
-end
+binding.pry
+
+puts "Have a wonderful day!"
+
 
 
 
