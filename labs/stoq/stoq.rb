@@ -51,8 +51,8 @@ while response != "q"
 		puts "How much cash do you have?"
 		cash = gets.to_f
 
-		User.new(name, password, cash)
-		
+		u1 = User.new(name, password, cash)
+
 	when "l"
 		puts "What is your user name? #{name}"
 		user_name = gets.chomp
@@ -60,15 +60,17 @@ while response != "q"
 			puts "What is your password?"
 			user_password = gets.chomp
 			if user_password == password
-				puts "What stock would you like to buy?"
-			puts "What is your password"
-			
+				# chang's code!
+				#
+				#
+				#
+			else
+				puts "Sorry! Incorrect password!"
+			end
+		end
 
-
-
-	puts "Create a (u)ser name, (l)ogin or (q)uit?"
-	response = gets.chomp
-
+		puts "Create a (u)ser name, (l)ogin or (q)uit?"
+		response = gets.chomp
 end
 
 if response == "q"
