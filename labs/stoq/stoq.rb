@@ -28,7 +28,52 @@
 # the only way out is ctrl c
 
 class User
-	attr_accessor :
+	attr_accessor :name, :password, :cash, :stock
+
+	def initialize(name, password, cash)
+		@name = name
+		@password = password
+		@cash = cash
+	end
+
 end
+
+puts "Create a (u)ser name, (l)ogin or (q)uit?"
+response = gets.chomp
+
+while response != "q"
+	case response
+	when "u"
+		puts "Please Create your user name:"
+		name = gets.chomp
+		puts "Please enter a password:"
+		password = gets.chomp
+		puts "How much cash do you have?"
+		cash = gets.to_f
+
+		User.new(name, password, cash)
+		
+	when "l"
+		puts "What is your user name? #{name}"
+		user_name = gets.chomp
+		while user_name == name
+			puts "What is your password?"
+			user_password = gets.chomp
+			if user_password == password
+				puts "What stock would you like to buy?"
+			puts "What is your password"
+			
+
+
+
+	puts "Create a (u)ser name, (l)ogin or (q)uit?"
+	response = gets.chomp
+
+end
+
+if response == "q"
+	puts "Have a wonderful day!"
+end
+
 
 
