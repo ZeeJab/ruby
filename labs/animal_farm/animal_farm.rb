@@ -11,6 +11,7 @@ load 'farm.rb'
 people = []
 animals = []
 farms = []
+# farms = {} we're gonna use a hash instead to make it quicker to find a name rahter than a hash, so then the code ont he bottom has to change
 
 puts "do you want to have fun and create some farms? (y)es or (n)o"
 response = gets.chomp
@@ -19,7 +20,10 @@ while response != "n"
 
 	puts "What do you want to name your farm?"
 	name_farm = gets.chomp
-	farms << Farm.new(name_farm)
+	farms << Farm.new(name_farm) # after it becomes a hash... this becomes 
+	# farm = Farm.new(name)
+	# farms[name] = farm ... so you're searching for a key and its value, the key is the name, and the value is the farm objects created
+	# instead of pushing it into an array, we're adding it to its respective key.
 	puts "do you want to create more farms? (y)es or (n)o"
     response = gets.chomp
 
@@ -42,8 +46,24 @@ while user_choice != "q"
 		gender_person = gets.chomp.downcase
 		people << Person.new(name_person, age, gender_person)
 
+		# based on the code bellow the above should be person << Person.new(name, age, gender)
 		puts "These are your farms #{farms}, please select a farm to assign this person to"
 		farm_choice = gets.chomp.downcase
+
+		# farms.map {|f| f.name}.join(', ')	#its better to use this to show it to the user. it creates a new array, turns it into a string 
+		# instead of #{farm}
+		# then farm_found = nil
+		# farms.each do |farm|
+		# 	if (farm.name == farm_name)
+		# 		farm_found = farm_choice
+		# 	end
+		# end  #this happens till you find the farm name that was entered 
+		# farm_found.people << person
+
+		#when we're using a hash instead of an array up top the code changes to
+		# #{farms.keys.join(', ')}
+		# and then instead of the .each loop you do --> farms[farm_name].people << person -- so you insert the person into the people array of the farm object through the key
+
 
 		(0..(farms.length-1)).each do |i|
 			if farms[i].name == farm_choice
