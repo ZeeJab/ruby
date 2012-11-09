@@ -1,4 +1,5 @@
 
+require 'pry'
 class Mathematics
 	attr_accessor :numbers
 
@@ -11,4 +12,6 @@ class Mathematics
 	end
 end
 
-Mathematics.New()
+puts Mathematics.New(8)
+
+binding.pry
